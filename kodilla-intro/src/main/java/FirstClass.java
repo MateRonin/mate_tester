@@ -18,6 +18,7 @@ public class FirstClass {
         oldNotebook.checkWeight();
         oldNotebook.checkPrice();
         oldNotebook.checkPurchase();
+
         }
     }
 
