@@ -39,6 +39,7 @@ public class Grades {
         System.out.println(grades.getLast());
         System.out.println(grades.size);
         System.out.println(grades.average());
+        System.out.println(grades.average());
     }
 }
 
