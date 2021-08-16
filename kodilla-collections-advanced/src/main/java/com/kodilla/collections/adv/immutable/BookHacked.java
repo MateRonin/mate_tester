@@ -10,8 +10,5 @@ class BookHacked extends Book {
 
     public void modifyTitle(String newTitle) { realTitle = newTitle; }
 
-    @Override
-    public String getTitle() {
-        return realTitle;
-    }
+
 }
