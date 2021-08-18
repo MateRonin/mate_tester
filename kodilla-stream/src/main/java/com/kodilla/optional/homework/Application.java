@@ -6,7 +6,6 @@ import java.util.Optional;
 
 public class Application {
     public static void main(String[] args) {
-
         List<Student> students = new ArrayList<>();
         Teacher teacher1 = new Teacher("Severus");
         Teacher teacher2 = new Teacher("Remus");
@@ -20,12 +19,9 @@ public class Application {
         students.add(student3);
         students.add(student4);
 
-
-
         for (Student student: students) {
             Optional<Teacher> optionalTeacher = Optional.ofNullable(student.getTeacher());
             Teacher isNull = optionalTeacher.orElse(new Teacher("<unidentified>"));
-
             System.out.println("Student: " + student.getName() + " Teacher: " + isNull.getTeacherName());
         }
 
