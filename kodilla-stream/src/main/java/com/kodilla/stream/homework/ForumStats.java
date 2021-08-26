@@ -1,6 +1,5 @@
 package com.kodilla.stream.homework;
 
-import com.kodilla.stream.User;
 import com.kodilla.stream.UsersRepository;
 
 public class ForumStats {
