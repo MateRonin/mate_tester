@@ -1,24 +1,21 @@
 package com.kodilla.spring.basic.dependency_injection.homework;
 
-public class ShippingCenter implements NotificationService {
+public class ShippingCenter {
 
-    private DeliveryService deliveryService = new DeliveryService();
+    private NotificationService notificationService;
+
+    private DeliveryService deliveryService;
+
+    public ShippingCenter(NotificationService notificationService, DeliveryService deliveryService) {
+        this.notificationService = notificationService;
+        this.deliveryService = deliveryService;
+    }
 
     public void sendPackage(String address, double weight) {
         if (deliveryService.deliverPackage(address, weight)) {
-            success(address);
+            notificationService.success(address);
         } else {
-           fail(address);
+            notificationService.fail(address);
         }
-    }
-
-    @Override
-    public void success(String address) {
-        System.out.println("Package delivered to: " + address);
-    }
-
-    @Override
-    public void fail(String address) {
-        System.out.println("Package not delivered to: " + address);
     }
 }
