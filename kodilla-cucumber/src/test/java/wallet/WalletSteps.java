@@ -36,7 +36,7 @@ public class WalletSteps implements En {
                     Assert.assertEquals("Incorrect wallet balance", 0, wallet.getBalance()));
 
 
-            Given("There is $100 in my wallet", () -> {
+            Given("There should be $100 in my wallet", () -> {
                 wallet.deposit(100);
                 Assert.assertEquals("Incorrect wallet balance", 100, wallet.getBalance());
             });
@@ -51,19 +51,17 @@ public class WalletSteps implements En {
                 Assert.assertEquals("You don't have enough money in your wallet", "You don't have enough money in your wallet");
             });
 
-            Given("I have deposited $100 in my wallet", () -> {
+
+            Given("I have $100 in my wallet", () -> {
                 wallet.deposit(100);
                 Assert.assertEquals("Incorrect wallet balance", 100, wallet.getBalance());
             });
-            When("I don't want any withdrawal", () -> {
+            When("I check the balance of my wallet", () -> {
                 Cashier cashier = new Cashier(cashSlot);
                 cashier.withdraw(wallet, 0);
             });
-            Then("$0 should be dispensed", () -> Assert.assertEquals(0, cashSlot.getContents()));
-            Then("The balance should be $100",
-                    () -> Assert.assertEquals("Incorrect wallet balance", 100, wallet.getBalance()));
+            Then("The balance of my wallet is $100", () -> Assert.assertEquals(100, wallet.getBalance()));
 
 
         }
-    }
-}
+    }}
