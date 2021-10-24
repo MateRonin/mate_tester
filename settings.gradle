@@ -18,4 +18,5 @@ include 'kodilla-google-selenium:kodilla-cucumber'
 findProject(':kodilla-google-selenium:kodilla-cucumber')?.name = 'kodilla-cucumber'
 include 'kodilla-cucumber'
 include 'kodilla-code-coverage'
+include 'kodilla-terminal'
 
