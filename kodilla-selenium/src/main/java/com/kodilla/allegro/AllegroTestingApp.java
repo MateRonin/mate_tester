@@ -12,14 +12,14 @@ import java.util.List;
 
 public class AllegroTestingApp {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\selenium drivers\\Chrome\\chromedriver.exe");      // [1]
+       System.setProperty("webdriver.chrome.driver", "C:\\selenium drivers\\Chrome\\chromedriver.exe");      // [1]
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.allegro.pl/");
 
         WebElement cookies = driver.findElement(By.cssSelector("div > div > button.mgn2_14"));
         cookies.click();
 
-        WebElement dropDown = driver.findElement(By.cssSelector("div > div > select.mr3m_1")); // "//*[@data-role=\"filters\"]/div/select" /html/body/div[2]/div[4]/header/div/div/div[1]/div/form/div[3]/div/select
+        WebElement dropDown = driver.findElement(By.id("div > div > select.mr3m_1")); // "//*[@data-role=\"filters\"]/div/select" /html/body/div[2]/div[4]/header/div/div/div[1]/div/form/div[3]/div/select
         Select electricSelect = new Select(dropDown);
         electricSelect.selectByIndex(3);
 
@@ -30,7 +30,7 @@ public class AllegroTestingApp {
         searchButton.click();
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
-        // wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div > a.msts_9u")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div > a.msts_9u")));
 
         List<WebElement> element = driver.findElements(By.cssSelector("section > article.mx7m_1"));
         System.out.println(element.get(0).getText());
